@@ -1,0 +1,133 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.separator {
+    border-color: black
+}
+
+/* Navbar */
+.navbar-nav {
+    text-transform: uppercase;
+}
+
+    .navbar-nav li a .fa {
+        font-size: 20px;
+    }
+
+/* Grid */
+.grid-container {
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    justify-items: center;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+}
+
+    .grid-container .tile {
+        width: 360px;
+        cursor: pointer;
+        position: relative;
+    }
+
+        .grid-container .tile .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(1, 1, 1, 0.4);
+            transform: scaleY(0);
+            transform-origin: bottom;
+        }
+
+            .grid-container .tile .overlay .play {
+                color: white;
+                font-size: 42px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+        .grid-container .tile:hover .overlay {
+            animation: open 0.4s ease-out forwards;
+        }
+
+        .grid-container .tile img {
+            width: 100%;
+            object-fit: scale-down;
+        }
+
+/* Details */
+.detail-container {
+    width: 100%;
+    margin: 20px auto 50px auto;
+}
+
+    .detail-container .details {
+        transform-origin: top center;
+        display: grid;
+        justify-items: center;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    }
+
+.details-open {
+    animation: open 0.4s ease-in-out forwards;
+}
+
+@keyframes open {
+    0% {
+        transform: scaleY(0);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.slideshow {
+}
+
+    .slideshow .slide {
+        width: 100%;
+    }
+
+.details .info {
+    width: 100%
+}
+
+.play-button-container {
+    text-align: center;
+}
+
+.play-button {
+    margin: 10px auto;
+    font-size: 64px;
+}
