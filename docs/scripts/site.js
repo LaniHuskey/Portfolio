@@ -22,8 +22,9 @@ var slideTimeout;
 
 function playSlideshow(id) {
     slides = $('#' + id).children('.slideshow').children('.slide');
-
-    changeSlide();
+    if(slides.length > 0) {
+        changeSlide();
+    }
 }
 
 function changeSlide() {
