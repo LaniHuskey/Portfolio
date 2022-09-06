@@ -42,7 +42,7 @@ textarea {
     .navbar-nav li a .fa {
         font-size: 20px;
     }
-    .navbar-nav li a {
+    .navbar-inverse .navbar-nav > li > a {
         color: #5d0859;
     }
 /* Grid */
