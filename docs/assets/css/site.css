@@ -29,16 +29,22 @@ textarea {
 }
 
 /* Navbar */
+.navbar-inverse {
+    background-color: #e678d8;
+    border-color: #5d0859;
+    color: #5d0859;
+}
 .navbar-nav {
     text-transform: uppercase;
-    color: #e678d8;
+    
 }
 
     .navbar-nav li a .fa {
         font-size: 20px;
-        font-color: #5d0859;
     }
-
+    .navbar-nav li a {
+        color: #5d0859;
+    }
 /* Grid */
 .grid-container {
     width: 100%;
