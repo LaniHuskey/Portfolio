@@ -11,6 +11,10 @@
     padding-right: 15px;
     background-color: #fbcafb;
 }
+.jumbotron {
+    background-color: #ffe6ff;
+
+}
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -27,14 +31,14 @@ textarea {
 }
 
 .separator {
-    border-color: black
+    border-color: #009f9c
 }
 
 /* Navbar */
 .navbar-inverse {
     background-color: #e678d8;
     border-color: #5d0859;
-    color: #5d0859;
+    color: #ffe6ff;
 }
 .navbar-nav {
     text-transform: uppercase;
