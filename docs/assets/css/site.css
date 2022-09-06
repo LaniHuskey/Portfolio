@@ -8,6 +8,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: #fbcafb;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -44,6 +45,7 @@ textarea {
     }
     .navbar-inverse .navbar-nav > li > a {
         color: #5d0859;
+        cursor: pointer;
     }
 /* Grid */
 .grid-container {
