@@ -3,7 +3,9 @@
     padding-bottom: 20px;
     background-color: #ffe6ff;
     background-image: url("/Portfolio/docs/assets/images/bottle_bg.png");
+    background-size: 200px;
     background-repeat: repeat;
+    color: #5d0859;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -37,8 +39,8 @@ textarea {
 
 /* Navbar */
 .navbar-inverse {
-    background-color: #ffe6ff;
-    border-color: #f5d7f3;;
+    background-color: #00ad9f;
+    border-color: #099797;
 }
 .navbar-nav {
     text-transform: uppercase;
@@ -49,7 +51,7 @@ textarea {
         font-size: 20px;
     }
     .navbar-inverse .navbar-nav > li > a {
-        color: #5d0859;
+        color: #00574f;
         cursor: pointer;
     }
 /* Grid */
@@ -146,4 +148,7 @@ textarea {
 .play-button {
     margin: 10px auto;
     font-size: 64px;
+}
+.span {
+    color:#5d0859;
 }
