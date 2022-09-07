@@ -54,7 +54,7 @@ textarea {
         color: #ffa2f0;
         cursor: pointer;
     }
-    .navbar-inverse .navbar-nav > li > a::hover {
+    .navbar-inverse .navbar-nav > li > a:hover {
       color: aqua;
     }
 /* Grid */
