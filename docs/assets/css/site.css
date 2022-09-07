@@ -51,11 +51,11 @@ textarea {
         font-size: 20px;
     }
     .navbar-inverse .navbar-nav > li > a {
-        color: #ffa2f0;
+        color: #ffdfff;
         cursor: pointer;
     }
     .navbar-inverse .navbar-nav > li > a:hover {
-      color: aqua;
+      color: #00ffa8;
     }
 /* Grid */
 .grid-container {
