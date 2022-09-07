@@ -41,6 +41,7 @@ textarea {
 .navbar-inverse {
     background-color: #5d0859;
     border-color: #41023d;
+    box-shadow: rgb(0, 0, 0, 0.4) 0 5px 10px;
 }
 .navbar-nav {
     text-transform: uppercase;
