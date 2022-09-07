@@ -144,6 +144,7 @@ textarea {
 
     .slideshow .slide {
         width: 100%;
+        border-radius: 25px
     }
 
 .details .info {
