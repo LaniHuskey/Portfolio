@@ -3,8 +3,7 @@
     padding-bottom: 20px;
     background-color: #ffe6ff;
     background-image: url("/Portfolio/docs/assets/images/bottle_bg.png" style="width:100px;");
-    background-repeat: repeat-x; repeat-y;
-    color: #5d0859;
+    background-repeat: repeat;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -38,9 +37,8 @@ textarea {
 
 /* Navbar */
 .navbar-inverse {
-    background-color: #e678d8;
-    border-color: #5d0859;
-    color: #eecc3a;
+    background-color: #ffe6ff;
+    border-color: #f5d7f3;;
 }
 .navbar-nav {
     text-transform: uppercase;
