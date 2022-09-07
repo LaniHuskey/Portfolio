@@ -39,8 +39,8 @@ textarea {
 
 /* Navbar */
 .navbar-inverse {
-    background-color: #00ad9f;
-    border-color: #099797;
+    background-color: #5d0859;
+    border-color: #41023d;
 }
 .navbar-nav {
     text-transform: uppercase;
@@ -51,8 +51,11 @@ textarea {
         font-size: 20px;
     }
     .navbar-inverse .navbar-nav > li > a {
-        color: #00574f;
+        color: #ffa2f0;
         cursor: pointer;
+    }
+    .navbar-inverse .navbar-nav > li > a::hover {
+      color: aqua;
     }
 /* Grid */
 .grid-container {
