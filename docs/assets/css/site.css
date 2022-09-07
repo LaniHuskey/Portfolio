@@ -2,8 +2,8 @@
     padding-top: 50px;
     padding-bottom: 20px;
     background-color: #ffe6ff;
-    background-image: url("/Portfolio/docs/assets/images/bottle_bg.png");
-    background-repeat: repeat-x;
+    background-image: url("/Portfolio/docs/assets/images/bottle_bg.png" style="width:100px;");
+    background-repeat: repeat-x; repeat-y;
     color: #5d0859;
 }
 
