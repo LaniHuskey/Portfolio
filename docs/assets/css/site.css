@@ -66,6 +66,8 @@ textarea {
     justify-items: center;
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    box-shadow: 15px 15px 10px #BBF; 
+    border-radius: 25px;
 }
 
     .grid-container .tile {
