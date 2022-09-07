@@ -121,7 +121,7 @@ textarea {
         transform-origin: top center;
         display: grid;
         justify-items: center;
-        grid-gap: 1rem;
+        grid-gap: 5rem;
         grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     }
 
