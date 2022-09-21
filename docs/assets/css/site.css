@@ -1,10 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: #ffe6ff;
-    background-image: url("/Portfolio/docs/assets/images/bottle_bg.png");
-    background-size: 200px;
-    background-repeat: repeat;
+    background-color: #cf2b73;
     color: #5d0859;
 }
 
@@ -15,7 +12,7 @@
     background-color: #ffffff;
 }
 .jumbotron {
-    background-color: #ffffff;
+    background-color: #cf2b73;
 
 }
 
