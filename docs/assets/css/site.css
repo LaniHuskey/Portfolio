@@ -31,7 +31,7 @@ textarea {
 }
 
 .separator {
-    border-color: #5d0859;
+    border-color: #ffffff;
 }
 
 /* Navbar */
@@ -80,7 +80,7 @@ textarea {
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: rgba(0, 168, 165, 0.4);
+            background-color: rgba(17, 255, 156, 0.4);
             transform: scaleY(0);
             transform-origin: bottom;
             border-radius: 25px
@@ -107,7 +107,6 @@ textarea {
             object-fit: scale-down;
             border-radius: 25px
         }
-
 /* Details */
 .detail-container {
     width: 100%;
@@ -161,4 +160,8 @@ textarea {
 }
 .h3 {
  font-size: 18px;   
+}
+.h3 {
+    color:#ffffff;
+    font-family: 'Courier New', monospace;
 }
