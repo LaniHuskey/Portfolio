@@ -123,6 +123,7 @@ textarea {
 .details {
     padding: 10px;
     background-color: #e95395;
+    border-radius: 25px;
 
 }
 .details-open {
