@@ -80,7 +80,7 @@ textarea {
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: rgba(17, 255, 156, 0.4);
+            background-color: rgba(17, 255, 164, 0.712);
             transform: scaleY(0);
             transform-origin: bottom;
             border-radius: 25px
@@ -136,6 +136,7 @@ textarea {
 }
 
 .slideshow {
+    background-color: #e95395;
 }
 
     .slideshow .slide {
