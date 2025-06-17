@@ -18,8 +18,9 @@
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  width: 50%;
-  align-items: center; 
+  align-items: center;
+  width: 50%; 
+  margin: 0 auto;
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {
