@@ -17,8 +17,11 @@
   scroll-snap-align: start;
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  
+  justify-content: center;   /* horizontal centering */
+  align-items: center;       /* vertical centering */
+  text-align: center;        /* optional: center text inside */
+  padding: 2rem;             /* optional: for spacing on smaller screens */
+  box-sizing: border-box;
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {
