@@ -34,6 +34,20 @@ textarea {
     border-color: #ffffff;
 }
 
+/* Set font for body content */
+
+.abeezee-regular {
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.abeezee-regular-italic {
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
 /* Navbar */
 .navbar-inverse {
     background-color: #350769;
@@ -43,6 +57,12 @@ textarea {
 .navbar-nav {
     text-transform: uppercase;
     
+}
+
+.marcellus-sc-regular {
+  font-family: "Marcellus SC", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
     .navbar-nav li a .fa {
@@ -169,5 +189,16 @@ textarea {
 }
 .h3 {
     color:#ffffff;
-    font-family: 'Courier New', monospace;
+  font-family: "Original Surfer", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    
+}
+
+/* I don't know if this needs to be here*/
+
+.original-surfer-regular {
+  font-family: "Original Surfer", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
