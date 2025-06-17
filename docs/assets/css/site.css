@@ -184,12 +184,11 @@ textarea {
 .span {
     color:#5d0859;
 }
-.h2 {
- font-size: 18px;   
-}
+
 .h2 {
     color:#ffffff;
   font-family: "Original Surfer", sans-serif;
+  font-size: 18px;
   font-weight: 400;
   font-style: normal;
     
