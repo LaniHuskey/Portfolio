@@ -15,7 +15,6 @@
 
 .page {
   height: 100vh;
-  overflow-y: auto;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
