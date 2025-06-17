@@ -14,7 +14,7 @@
 }
 
 .page {
-  padding-top: 10%;
+  padding-top: 5%;
   height: 100vh;
   scroll-snap-align: start;
   display: flex;
@@ -28,6 +28,8 @@
     padding-left: 15px;
     padding-right: 15px;
     background-color: #6e3ea3;
+    font-family: abeezee-regular;
+    font-size: 12px; 
 }
 .jumbotron {
     background-color: #6e3ea3;
