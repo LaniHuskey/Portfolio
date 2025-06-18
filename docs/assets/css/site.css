@@ -6,22 +6,20 @@
 }
 
 .snap-container {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
   overflow-y: auto;
   height: 100vh;
-  scroll-behavior: smooth;
+  scroll-padding-top: 10vh;
 -webkit-overflow-scrolling: touch;
 }
 
 .page {
-  padding-top: 5%;
-  height: 100vh;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%; 
-  margin: 0 auto;
+  margin: 25px;
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {
