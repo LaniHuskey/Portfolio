@@ -12,6 +12,9 @@ function loadDetails(id) {
         details.children().hide();
         $('#' + id).show();
         playSlideshow(id);
+    } else {
+        clearTimeout(slideTimeout)
+        details.children.hide();
     }
 }
 
