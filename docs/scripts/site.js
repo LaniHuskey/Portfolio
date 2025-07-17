@@ -13,9 +13,13 @@ function loadDetails(id) {
         $('#' + id).show();
         playSlideshow(id);
     } else {
-        clearTimeout(slideTimeout)
-        details.children.hide();
+        closeDetails();
     }
+}
+
+function closeDetails() {
+    clearTimeout(slideTimeout)
+    details.children().hide();
 }
 
 // Slideshow
