@@ -18,6 +18,7 @@ function loadDetails(id) {
 }
 
 function closeDetails() {
+    currentId = "";
     clearTimeout(slideTimeout)
     details.children().hide();
 }
