@@ -1,37 +1,39 @@
-﻿body {  
+﻿body {
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #6e3ea3;
     color: #ffffff;
     overflow-y: hidden;
-     
+
 }
 
 .snap-container {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  overflow-y: auto;
-  height: 100vh;
-  scroll-padding-top: 10vh;
--webkit-overflow-scrolling: touch;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    overflow-y: auto;
+    height: 100vh;
+    scroll-padding-top: 10vh;
+    -webkit-overflow-scrolling: touch;
 }
 
 .page {
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 25px;
-  min-height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px;
+    min-height: 100vh;
 }
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
     background-color: #6e3ea3;
     font-family: abeezee-regular;
-    font-size: 12px; 
+    font-size: 12px;
 }
+
 .jumbotron {
     background-color: #6e3ea3;
 
@@ -58,15 +60,15 @@ textarea {
 /* Set font for body content */
 
 .abeezee-regular {
-  font-family: "ABeeZee", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .abeezee-regular-italic {
-  font-family: "ABeeZee", sans-serif;
-  font-weight: 400;
-  font-style: italic;
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: italic;
 }
 
 /* Navbar */
@@ -75,27 +77,31 @@ textarea {
     border-color: #41023d;
     box-shadow: rgb(0, 0, 0, 0.4) 0 5px 10px;
 }
+
 .navbar-nav {
     text-transform: uppercase;
-    
+
 }
 
 .marcellus-sc-regular {
-  font-family: "Marcellus SC", serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Marcellus SC", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-    .navbar-nav li a .fa {
-        font-size: 20px;
-    }
-    .navbar-inverse .navbar-nav > li > a {
-        color: #ffffff;
-        cursor: pointer;
-    }
-    .navbar-inverse .navbar-nav > li > a:hover {
-      color: #00ffa8;
-    }
+.navbar-nav li a .fa {
+    font-size: 20px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: #00ffa8;
+}
+
 /* Grid */
 .grid-container {
     width: 100%;
@@ -107,66 +113,69 @@ textarea {
 
 }
 
-    .grid-container .tile {
-        width: 360px;
-        cursor: pointer;
-        position: relative;
-        box-shadow: 5px 5px 5px #350769; 
-        border-radius: 25px;
-    }
+.grid-container .tile {
+    width: 360px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 5px 5px 5px #350769;
+    border-radius: 25px;
+}
 
-        .grid-container .tile .overlay {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(17, 255, 164, 0.712);
-            transform: scaleY(0);
-            transform-origin: bottom;
-            border-radius: 25px
-        }
+.grid-container .tile .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(17, 255, 164, 0.712);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    border-radius: 25px
+}
 
-            .grid-container .tile .overlay .play {
-                color: white;
-                font-size: 42px;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-                text-align: center;
-            }
+.grid-container .tile .overlay .play {
+    color: white;
+    font-size: 42px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
 
-        .grid-container .tile:hover .overlay {
-            animation: open 0.4s ease-out forwards;
-        }
+.grid-container .tile:hover .overlay {
+    animation: open 0.4s ease-out forwards;
+}
 
-        .grid-container .tile img {
-            width: 100%;
-            object-fit: scale-down;
-            border-radius: 25px
-        }
+.grid-container .tile img {
+    width: 100%;
+    object-fit: scale-down;
+    border-radius: 25px
+}
+
 /* Details */
 .detail-container {
     width: 100%;
     margin: 20px auto 50px auto;
 }
 
-    .detail-container .details {
-        transform-origin: top center;
-        display: grid;
-        justify-items: center;
-        grid-gap: 5rem;
-        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    }
+.detail-container .details {
+    transform-origin: top center;
+    display: grid;
+    justify-items: center;
+    grid-gap: 5rem;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+}
+
 .details {
     padding: 10px;
     background-color: #350769;
     border-radius: 25px;
 
 }
+
 .details-open {
     animation: open 0.4s ease-in-out forwards;
 }
@@ -181,14 +190,10 @@ textarea {
     }
 }
 
-.slideshow {
-
+.slideshow .slide {
+    width: 100%;
+    border-radius: 25px
 }
-
-    .slideshow .slide {
-        width: 100%;
-        border-radius: 25px
-    }
 
 .details .info {
     width: 100%
@@ -202,23 +207,24 @@ textarea {
     margin: 10px auto;
     font-size: 64px;
 }
+
 .span {
-    color:#5d0859;
+    color: #5d0859;
 }
 
 .h2 {
-    color:#ffffff;
-  font-family: "Original Surfer", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  font-style: normal;
-    
+    color: #ffffff;
+    font-family: "Original Surfer", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+
 }
 
 /* I don't know if this needs to be here*/
 
 .original-surfer-regular {
-  font-family: "Original Surfer", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Original Surfer", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
