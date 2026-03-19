@@ -464,6 +464,108 @@
   }
   .about-tag:hover { border-color: var(--accent); color: var(--accent); }
 
+  /* ── TIMELINE ── */
+  .timeline-section { padding: 6rem 3rem 3rem; }
+  .timeline-section > .inner { max-width: 1200px; margin: 0 auto; }
+  .timeline-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    letter-spacing: -.01em;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+  }
+  .timeline-track {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0;
+    padding-top: 2.5rem;
+  }
+  .timeline-line {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--lavender), var(--mint), var(--amber), var(--sky), var(--coral));
+    opacity: .35;
+    border-radius: 2px;
+  }
+  .timeline-item {
+    position: relative;
+    padding: 1.5rem 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .tl-dot {
+    position: absolute;
+    top: -6px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--tl-color, var(--accent));
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--tl-color, var(--accent));
+    flex-shrink: 0;
+  }
+  .tl-card {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+  }
+  .tl-dates {
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--tl-color, var(--accent));
+  }
+  .tl-role {
+    font-family: 'Playfair Display', serif;
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .tl-org {
+    font-size: .75rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.3;
+  }
+  .tl-degree {
+    font-size: .7rem;
+    font-weight: 500;
+    color: var(--tl-color, var(--accent));
+    opacity: .8;
+    font-style: italic;
+    margin-top: .15rem;
+    line-height: 1.3;
+  }
+  @media (max-width: 768px) {
+    .timeline-track {
+      grid-template-columns: 1fr;
+      padding-top: 0;
+      gap: 0;
+    }
+    .timeline-line {
+      top: 0; left: 6px; right: auto; bottom: 0;
+      width: 2px;
+      height: auto;
+      background: linear-gradient(to bottom, var(--lavender), var(--mint), var(--amber), var(--sky), var(--coral));
+    }
+    .timeline-item {
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
+      padding: 0 0 2rem 2.5rem;
+    }
+    .tl-dot {
+      top: 4px;
+      left: 0;
+    }
+  }
+
   /* ── SKILLS ── */
   .skills-section { padding: 6rem 3rem; }
   .skills-section > .inner { max-width: 1200px; margin: 0 auto; }
@@ -556,6 +658,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#games">Portfolio</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="/cdn-cgi/l/email-protection#7c101d1215521a1910180f081918083c1b111d1510521f1311">Contact</a></li>
   </ul>
 </nav>
 
@@ -574,6 +677,84 @@
     <a class="btn btn-outline" href="#about">About Me</a>
   </div>
   <div class="hero-deco"></div>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline-section">
+  <div class="inner">
+    <div class="section-label">Experience</div>
+    <h2 class="timeline-heading">My Journey</h2>
+    <div class="timeline-track">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-item" style="--tl-color: var(--lavender)">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <span class="tl-dates">2012 – 2016</span>
+          <div class="tl-role">Student</div>
+          <div class="tl-org">Coker University</div>
+          <div class="tl-degree">B.A. English Literature</div>
+        </div>
+      </div>
+
+      <div class="timeline-item" style="--tl-color: var(--mint)">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <span class="tl-dates">2016 – 2019</span>
+          <div class="tl-role">Event Coordinator</div>
+          <div class="tl-org">Baker Memorial Library</div>
+        </div>
+      </div>
+
+      <div class="timeline-item" style="--tl-color: var(--muted)">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <span class="tl-dates">2019 – 2020</span>
+          <div class="tl-role">Relocation</div>
+          <div class="tl-org">Moving to Denmark</div>
+        </div>
+      </div>
+
+      <div class="timeline-item" style="--tl-color: var(--amber)">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <span class="tl-dates">2020 – 2022</span>
+          <div class="tl-role">Student</div>
+          <div class="tl-org">IT University of Copenhagen</div>
+          <div class="tl-degree">M.Sc. Game Design</div>
+        </div>
+      </div>
+
+      <div class="timeline-item" style="--tl-color: var(--sky)">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <span class="tl-dates">2023 – Present</span>
+          <div class="tl-role">Event Coordinator</div>
+          <div class="tl-org">Game Workers' Guild</div>
+        </div>
+      </div>
+
+      <div class="timeline-item" style="--tl-color: var(--coral)">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <span class="tl-dates">2024 – 2026</span>
+          <div class="tl-role">Game Designer</div>
+          <div class="tl-org">Cooking with Goblins</div>
+        </div>
+      </div>
+
+      <div class="timeline-item" style="--tl-color: var(--rose)">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <span class="tl-dates">2025 – 2026</span>
+          <div class="tl-role">Upskilling</div>
+          <div class="tl-org">Interaction Design Foundation</div>
+          <div class="tl-degree">Cert. UX &amp; UI Design</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <!-- SKILLS -->
@@ -839,7 +1020,9 @@
 <footer>
   <p>© 2025 <strong>Lani Feldstedt</strong> · Game Designer · Copenhagen, DK &nbsp;·&nbsp; Co-founder, Cooking with Goblins</p>
   <p style="margin-top: .75rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-    <a href="https://www.linkedin.com/in/lani-feldstedt-20472225/" target="_blank" style="color: var(--accent); text-decoration: none; font-size: .8rem; letter-spacing: .05em; transition: opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">LinkedIn ↗</a>  
+    <a href="https://www.linkedin.com/in/lani-feldstedt-20472225/" target="_blank" style="color: var(--accent); text-decoration: none; font-size: .8rem; letter-spacing: .05em; transition: opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">LinkedIn ↗</a>
+    <a href="/cdn-cgi/l/email-protection#e985888780c78f8c858d9a9d8c8d9da98e84888085c78a8684" style="color: var(--accent); text-decoration: none; font-size: .8rem; letter-spacing: .05em; transition: opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'"><span class="__cf_email__" data-cfemail="ff939e9196d1999a939b8c8b9a9b8bbf98929e9693d19c9092">[email&#160;protected]</span> ↗</a>
+  </p>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
