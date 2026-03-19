@@ -400,16 +400,7 @@
     border-radius: 19px 19px 0 0;
     border-bottom: 1px solid var(--border);
   }
-  .card-number {
-    position: absolute;
-    bottom: 1.5rem; right: 1.75rem;
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    font-weight: 800;
-    color: rgba(255,255,255,.04);
-    line-height: 1;
-    user-select: none;
-  }
+
 
   /* ── ABOUT ── */
   .about-section {
@@ -499,6 +490,74 @@
     transition: all .2s;
   }
   .about-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── PROCESS ── */
+  .process-section { padding: 6rem 3rem; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .process-section > .inner { max-width: 1200px; margin: 0 auto; }
+  .process-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    letter-spacing: -.01em;
+    line-height: 1.2;
+    margin-bottom: 4rem;
+  }
+  .process-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+  .process-block:last-child { margin-bottom: 0; }
+  .process-block-reverse .process-text { order: 2; }
+  .process-block-reverse .process-img-placeholder { order: 1; }
+  .process-text p {
+    font-size: .975rem;
+    line-height: 1.85;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .process-text p strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .process-img-placeholder {
+    border-radius: 16px;
+    border: 1.5px dashed var(--border);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,.02);
+    transition: border-color .2s;
+  }
+  .process-img-placeholder:hover { border-color: var(--accent); }
+  .img-placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  .placeholder-label {
+    font-family: 'Playfair Display', serif;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .placeholder-hint {
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+  @media (max-width: 768px) {
+    .process-block { grid-template-columns: 1fr; gap: 2rem; }
+    .process-block-reverse .process-text { order: 1; }
+    .process-block-reverse .process-img-placeholder { order: 2; }
+  }
 
   /* ── TIMELINE ── */
   .timeline-section { padding: 6rem 3rem 3rem; }
@@ -693,6 +752,7 @@
   <ul class="nav-links">
     <li><a href="#skills">Skills</a></li>
     <li><a href="#games">Portfolio</a></li>
+    <li><a href="#process">Process</a></li>
     <li><a href="#about">About</a></li>
   </ul>
 </nav>
@@ -906,7 +966,7 @@
             <a href="https://dadiu.itch.io/alien" target="_blank" class="card-play-link">Play ↗</a>
           </div>
         </div>
-        <div class="card-number">02</div>
+
       </div>
 
       <!-- Milly Saves the Day -->
@@ -930,7 +990,7 @@
             <a href="https://labzilla.itch.io/milly-saves-the-day" target="_blank" class="card-play-link">Play ↗</a>
           </div>
         </div>
-        <div class="card-number">03</div>
+
       </div>
 
       <!-- Purrgatory -->
@@ -955,7 +1015,7 @@
             <a href="https://loaded-dice.itch.io/purrgatory" target="_blank" class="card-play-link">Play ↗</a>
           </div>
         </div>
-        <div class="card-number">04</div>
+
       </div>
 
       <!-- Refracted Realities -->
@@ -963,7 +1023,7 @@
         <div class="card-glow"></div>
         <img class="card-img" src="/docs/assets/images/title-realities.png" alt="Refracted Realities"/>
         <div class="card-roles">
-          <span class="role-pill">Designer</span>
+          <span class="role-pill">Game Designer</span>
           <span class="genre-pill">Multiplayer · Worldbuilding</span>
         </div>
         <div class="card-title">Refracted Realities</div>
@@ -977,7 +1037,7 @@
             <button class="card-read-more" onclick="toggleCard(this)">Read more ↓</button>
           </div>
         </div>
-        <div class="card-number">05</div>
+
       </div>
 
       <!-- Robbit -->
@@ -985,7 +1045,7 @@
         <div class="card-glow"></div>
         <img class="card-img" src="/docs/assets/images/title-robbit.png" alt="Robbit"/>
         <div class="card-roles">
-          <span class="role-pill">Lead Designer</span>
+          <span class="role-pill">Game Designer</span>
           <span class="genre-pill">Puzzle</span>
         </div>
         <div class="card-title">Robbit</div>
@@ -999,7 +1059,7 @@
             <a href="https://loaded-dice.itch.io/robbit" target="_blank" class="card-play-link">Play ↗</a>
           </div>
         </div>
-        <div class="card-number">06</div>
+
       </div>
 
       <!-- Witch's Workshop -->
@@ -1007,7 +1067,7 @@
         <div class="card-glow"></div>
         <img class="card-img" src="/docs/assets/images/title-witch.png" alt="The Witch's Workshop"/>
         <div class="card-roles">
-          <span class="role-pill">Lead Designer</span>
+          <span class="role-pill">Game Designer</span>
           <span class="genre-pill">Crafting · Shop Management</span>
         </div>
         <div class="card-title">The Witch's Workshop</div>
@@ -1019,10 +1079,46 @@
           </div>
           <button class="card-read-more" onclick="toggleCard(this)">Read more ↓</button>
         </div>
-        <div class="card-number">07</div>
+
       </div>
 
     </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="process-section" id="process">
+  <div class="inner">
+    <div class="section-label">Methodology</div>
+    <h2 class="process-heading">Design Process</h2>
+
+    <div class="process-block">
+      <div class="process-text">
+        <p>My preferred design process relies heavily on <strong>visual communication</strong>. I communicate as much as I can through drawings (disregarding my complete lack of artistic talent), screenshots, videos, charts and graphs. From the start of the design process to the end, you'll find my terrible (but still understandable!) artwork. I've found that visuals greatly increase communication across teams, and we can all have a little laugh at my lopsided stick figures while we're at it.</p>
+      </div>
+      <div class="process-img-placeholder">
+        <img src="/docs/assets/images/sketch2.jpg" alt="Design Sketch" style="width:100%; height:100%; object-fit:cover; border-radius:16px;"/>
+      </div>
+    </div>
+
+    <div class="process-block process-block-reverse">
+      <div class="process-text">
+        <p>My designs are <strong>iterative</strong> and informed by <strong>research</strong> into similar products and <strong>user testing</strong> throughout the design and development process. I prefer a <strong>human-centric approach</strong> that prioritizes user experience while still meeting development and stakeholder goals, so I take research and user testing very seriously.</p>
+      </div>
+      <div class="process-img-placeholder">
+        <img src="/docs/assets/images/sketch.jpg" alt="User Testing Session" style="width:100%; height:100%; object-fit:cover; border-radius:16px;"/>
+      </div>
+    </div>
+
+    <div class="process-block">
+      <div class="process-text">
+        <p>I also take inspiration from <strong>Ghost Ship Games</strong> and their early design strategy to get as close to the vision as possible, as soon as possible. In a practical sense, for me, that means aiming for a <strong>mid-fidelity</strong> or a fancy <strong>low-fidelity prototype</strong> as quickly as possible with the goal of being able to provide a clear idea of the end product to my team and stakeholders. I find that the extra effort helps get people on board and communicates the direction more clearly from the beginning.</p>
+      </div>
+      <div class="process-img-placeholder">
+        <img src="/docs/assets/images/greybox.png" alt="Prototype Screenshot" style="width:100%; height:100%; object-fit:cover; border-radius:16px;"/>
+      </div>
+    </div>
+
   </div>
 </div>
 
