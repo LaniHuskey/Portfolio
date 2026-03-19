@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lani Feldstedt — Game Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #111014;
+    --surface: #1a1820;
+    --border: #2e2b38;
+    --text: #f0edf8;
+    --muted: #9490a8;
+    --accent: #c4b5fd;
+    --accent-soft: rgba(196,181,253,.15);
+    --coral: #ff6b6b;
+    --mint: #5ce8c1;
+    --amber: #ffc84a;
+    --lavender: #c4b5fd;
+    --sky: #6dd5fa;
+    --rose: #f7a8d8;
+    --lime: #b8f07c;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    background: rgba(17,16,20,0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: .02em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: .85rem;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 30%, rgba(196,181,253,.14) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 70%, rgba(196,181,253,.07) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 50% 10%, rgba(167,139,250,.08) 0%, transparent 60%);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 28px; height: 2px;
+    background: var(--accent);
+    display: block;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1.1;
+    letter-spacing: -.01em;
+    max-width: 14ch;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 .accent { color: var(--accent); display: block; }
+  .hero-sub {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 40ch;
+    line-height: 1.7;
+    position: relative; z-index: 1;
+  }
+  .hero-cta {
+    margin-top: 3rem;
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    position: relative; z-index: 1;
+  }
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: .85rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .85rem 2rem;
+    border-radius: 100px;
+    transition: transform .2s, box-shadow .2s;
+    cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary {
+    background: var(--accent);
+    color: #1a1820;
+    box-shadow: 0 0 0 0 rgba(196,181,253,.4);
+  }
+  .btn-primary:hover { box-shadow: 0 8px 32px rgba(196,181,253,.35); }
+  .btn-outline {
+    border: 1.5px solid var(--border);
+    color: var(--muted);
+  }
+  .btn-outline:hover { border-color: var(--muted); color: var(--text); }
+
+  .hero-deco {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(380px, 40vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    opacity: .5;
+    animation: spin 40s linear infinite;
+  }
+  .hero-deco::after {
+    content: '';
+    width: 70%; height: 70%;
+    border-radius: 50%;
+    border: 1px dashed var(--border);
+    animation: spin 20s linear infinite reverse;
+  }
+  @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 3rem; max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    font-size: .7rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 3rem;
+  }
+  .section-label::before {
+    content: '';
+    width: 36px; height: 1px;
+    background: var(--muted);
+    flex-shrink: 0;
+  }
+
+  /* ── GAMES GRID ── */
+  .games-section { padding: 6rem 3rem; }
+  .games-section > .inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+    gap: 2rem;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    letter-spacing: -.01em;
+  }
+
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .game-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--card-color, var(--accent));
+    box-shadow: 0 20px 60px rgba(0,0,0,.4), 0 0 0 1px var(--card-color, var(--accent));
+  }
+  .game-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--card-color, var(--accent));
+  }
+  .card-glow {
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: var(--card-color, var(--coral));
+    opacity: .06;
+    filter: blur(40px);
+    transition: opacity .3s;
+    pointer-events: none;
+  }
+  .game-card:hover .card-glow { opacity: .14; }
+
+  .card-roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-bottom: 1.25rem;
+  }
+  .role-pill {
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .25rem .7rem;
+    border-radius: 100px;
+    background: rgba(255,255,255,.05);
+    color: var(--card-color, var(--coral));
+    border: 1px solid currentColor;
+  }
+  .genre-pill {
+    font-size: .65rem;
+    font-weight: 500;
+    padding: .25rem .7rem;
+    border-radius: 100px;
+    background: rgba(255,255,255,.04);
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -.01em;
+    margin-bottom: .75rem;
+    line-height: 1.25;
+  }
+  .card-desc {
+    font-size: .875rem;
+    line-height: 1.7;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+  }
+  .card-text-collapsed {
+    overflow: hidden;
+    height: 5.8em;
+    position: relative;
+    transition: height .4s ease;
+  }
+  .card-text-collapsed.expanded {
+    height: auto;
+  }
+  .card-text-collapsed:not(.expanded)::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2.5em;
+    background: linear-gradient(transparent, var(--surface));
+    pointer-events: none;
+  }
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .75rem;
+  }
+  .card-read-more {
+    display: inline-block;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    transition: color .2s;
+  }
+  .card-read-more:hover { color: var(--text); }
+  .card-play-link {
+    display: inline-block;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--card-color, var(--accent));
+    border: 1.5px solid var(--card-color, var(--accent));
+    padding: .3rem .85rem;
+    border-radius: 100px;
+    transition: background .2s, color .2s;
+  }
+  .card-play-link:hover {
+    background: var(--card-color, var(--accent));
+    color: #111014;
+  }
+  .game-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s, border-color .3s, box-shadow .3s;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-img {
+    width: calc(100% + 4rem);
+    margin: -2rem -2rem 1.5rem -2rem;
+    height: 175px;
+    object-fit: cover;
+    display: block;
+    border-radius: 19px 19px 0 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-number {
+    position: absolute;
+    bottom: 1.5rem; right: 1.75rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 800;
+    color: rgba(255,255,255,.04);
+    line-height: 1;
+    user-select: none;
+  }
+
+  /* ── ABOUT ── */
+  .about-section {
+    padding: 6rem 3rem;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .about-section > .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-photo-wrap {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #1e1c26;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .about-deco-1 {
+    position: absolute;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: .12;
+    filter: blur(30px);
+    top: -20px; right: -20px;
+  }
+  .about-deco-2 {
+    position: absolute;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: var(--rose);
+    opacity: .1;
+    filter: blur(25px);
+    bottom: -10px; left: -10px;
+  }
+  .about-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    letter-spacing: -.01em;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  .about-content h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .about-content p {
+    font-size: .95rem;
+    line-height: 1.8;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-top: 1.75rem;
+  }
+  .about-tag {
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+    padding: .4rem 1rem;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    transition: all .2s;
+  }
+  .about-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── SKILLS ── */
+  .skills-section { padding: 6rem 3rem; }
+  .skills-section > .inner { max-width: 1200px; margin: 0 auto; }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .skill-col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+  }
+  .skill-col-header {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: 1.5rem;
+  }
+  .skill-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .skill-col-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: .01em;
+  }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+  .skill-list li {
+    font-size: .875rem;
+    color: var(--muted);
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+  }
+  .skill-list li::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 3rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: .8rem;
+    letter-spacing: .05em;
+  }
+  footer strong { color: var(--accent); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tag { animation: fadeUp .6s ease both; }
+  .hero h1 { animation: fadeUp .7s .1s ease both; }
+  .hero-sub { animation: fadeUp .7s .2s ease both; }
+  .hero-cta { animation: fadeUp .7s .3s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .hero-deco { display: none; }
+    section, .games-section, .skills-section, .about-section { padding: 4rem 1.5rem; }
+    .about-section > .inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .section-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>L</span>ani Feldstedt</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#games">Portfolio</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="/cdn-cgi/l/email-protection#7c101d1215521a1910180f081918083c1b111d1510521f1311">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-tag">Game Designer</div>
+  <h1>
+    Chaos,
+    <span class="accent">carefully</span>
+    considered.
+  </h1>
+  <p class="hero-sub">Copenhagen-based game designer, narrative architect, and co-founder of Cooking with Goblins — embracing absurdity in games and game design.</p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="#games">See My Work</a>
+    <a class="btn btn-outline" href="#about">About Me</a>
+  </div>
+  <div class="hero-deco"></div>
+</div>
+
+<!-- SKILLS -->
+<div class="skills-section" id="skills">
+  <div class="inner">
+    <div class="section-label">Competencies</div>
+    <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(2rem,3.5vw,2.8rem);letter-spacing:-.01em;line-height:1.2;margin-bottom:2.5rem;">Skills &amp; Tools</h2>
+    <div class="skills-grid">
+      <div class="skill-col">
+        <div class="skill-col-header">
+          <div class="skill-dot" style="background:var(--accent)"></div>
+          <span class="skill-col-title">General</span>
+        </div>
+        <ul class="skill-list">
+          <li>Gameplay Systems Design</li>
+          <li>Level Design</li>
+          <li>Narrative Design</li>
+          <li>Prototyping</li>
+          <li>3D Modeling</li>
+          <li>UI/UX Design</li>
+          <li>Narrative Writing</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-header">
+          <div class="skill-dot" style="background:var(--mint)"></div>
+          <span class="skill-col-title">Technical</span>
+        </div>
+        <ul class="skill-list">
+          <li>Unity</li>
+          <li>Blender</li>
+          <li>Godot</li>
+          <li>Git & Version Control</li>
+          <li>Figma</li>
+          <li>Photoshop</li>
+          <li>Aseprite</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-header">
+          <div class="skill-dot" style="background:var(--amber)"></div>
+          <span class="skill-col-title">Soft Skills</span>
+        </div>
+        <ul class="skill-list">
+          <li>Cross-functional Collaboration</li>
+          <li>Leadership</li>
+          <li>Problem-solving</li>
+          <li>Agile & Scrum</li>
+          <li>Conflict Resolution</li>
+          <li>Communication</li>
+          <li>Teamwork</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GAMES -->
+<div class="games-section" id="games">
+  <div class="inner">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Portfolio</div>
+        <h2>Selected Games</h2>
+      </div>
+    </div>
+
+    <div class="games-grid">
+
+      <!-- Blue Hour Odyssey -->
+      <div class="game-card" style="--card-color: var(--lavender)">
+        <div class="card-glow"></div>
+        <img class="card-img" src="/docs/assets/images/title-bluehourodyssey.png" alt="Blue Hour Odyssey"/>
+        <div class="card-roles">
+          <span class="role-pill">Game Designer</span>
+          <span class="genre-pill">Narrative · Resource Management</span>
+        </div>
+        <div class="card-title">Blue Hour Odyssey</div>
+        <div class="card-body">
+          <div class="card-text-collapsed">
+            <p class="card-desc">Blue Hour Odyssey is a narrative game where the player guides three travelers along the road to a great lighthouse, managing their resources along the way.</p>
+            <p class="card-desc" style="margin-top:.75rem">Blue Hour Odyssey was our first game at Cooking with Goblins. For a long time, Blue Hour Odyssey was a game without much of an identity. It is heavily inspired by The Oregon Trail, but we didn't want gameplay to feel as punishing as it could sometimes be in that game, and we wanted to try using a different sort of resource: mood.</p>
+            <p class="card-desc" style="margin-top:.75rem">In Blue Hour Odyssey, we decided that we wanted to focus on mental health and wellbeing as a crucial part of the gameplay. The player's choices in narrative sections have positive and negative effects on the travelers' moods, represented by the light in their lanterns. This game was a real challenge for me in learning to write branching narrative in a game with procedural generation.</p>
+            <p class="card-desc" style="margin-top:.75rem">We completed Blue Hour Odyssey in just four months and released it on itch.io.</p>
+          </div>
+          <div class="card-footer">
+            <button class="card-read-more" onclick="toggleCard(this)">Read more ↓</button>
+            <a href="https://cookingwithgoblins.itch.io/blue-hour-odyssey" target="_blank" class="card-play-link">Play ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carnivalien -->
+      <div class="game-card" style="--card-color: var(--amber)">
+        <div class="card-glow"></div>
+        <img class="card-img" src="/docs/assets/images/title-carnivalien.png" alt="Carnivalien"/>
+        <div class="card-roles">
+          <span class="role-pill">Game Designer</span>
+          <span class="genre-pill">Pinball Roguelite</span>
+        </div>
+        <div class="card-title">Carnivalien</div>
+        <div class="card-body">
+          <div class="card-text-collapsed">
+            <p class="card-desc">Carnivalien is a pinball-inspired roguelite where you play as an alien that crashed into an empty carnival. Unfortunately for you, your landing did not go unnoticed, and you'll have to outrun the CIA agents that are chasing you down.</p>
+            <p class="card-desc" style="margin-top:.75rem">Carnivalien was a unique project and one of the first productions I participated in with a large team. Though we had a clear vision for the gameplay from the onset, one of the most challenging aspects of the development process for this production was aligning the vision with the entire team. With a team of 17 people who all had their own vision for this project, it was difficult to find common ground.</p>
+            <p class="card-desc" style="margin-top:.75rem">For me, Carnivalien was a point of personal growth as a designer, particularly in transparency, communication, and conflict resolution.</p>
+            <p class="card-desc" style="margin-top:.75rem">The end product is a fast-paced, playful game that mimics arcade-style gameplay.</p>
+          </div>
+          <div class="card-footer">
+            <button class="card-read-more" onclick="toggleCard(this)">Read more ↓</button>
+            <a href="https://dadiu.itch.io/alien" target="_blank" class="card-play-link">Play ↗</a>
+          </div>
+        </div>
+        <div class="card-number">02</div>
+      </div>
+
+      <!-- Milly Saves the Day -->
+      <div class="game-card" style="--card-color: var(--coral)">
+        <div class="card-glow"></div>
+        <img class="card-img" src="/docs/assets/images/title-milly.png" alt="Milly Saves the Day"/>
+        <div class="card-roles">
+          <span class="role-pill">Game Designer</span>
+          <span class="role-pill">Level Designer</span>
+          <span class="genre-pill">Puzzle Platformer</span>
+        </div>
+        <div class="card-title">Milly Saves the Day</div>
+        <div class="card-body">
+          <div class="card-text-collapsed">
+            <p class="card-desc">Milly Saves the Day is a puzzle platformer with procedural elements. You play as Milly, the young daughter of a mad scientist, on a mission to deliver your father's prized cloning gun to him.</p>
+            <p class="card-desc" style="margin-top:.75rem">Milly Saves the Day is a very unique project for me, as it was the first project where I was the sole designer. Unfortunately, the other designer on the team was sick during the game's development. Because the game only had a ten day development cycle, I had to adapt quickly in order to meet our deadline. Milly Saves the Day is a project that I'm quite proud of, as we managed to complete a full game loop within such a short period of time even though we were missing several core team members. This was also the first puzzle platformer that I designed levels for.</p>
+            <p class="card-desc" style="margin-top:.75rem">The final project received a lot of praise at DADIU for its completeness and well-rounded gameplay.</p>
+          </div>
+          <div class="card-footer">
+            <button class="card-read-more" onclick="toggleCard(this)">Read more ↓</button>
+            <a href="https://labzilla.itch.io/milly-saves-the-day" target="_blank" class="card-play-link">Play ↗</a>
+          </div>
+        </div>
+        <div class="card-number">03</div>
+      </div>
+
+      <!-- Purrgatory -->
+      <div class="game-card" style="--card-color: var(--mint)">
+        <div class="card-glow"></div>
+        <img class="card-img" src="/docs/assets/images/title-purgatory.png" alt="Purrgatory"/>
+        <div class="card-roles">
+          <span class="role-pill">Narrative Designer</span>
+          <span class="role-pill">Level Designer</span>
+          <span class="role-pill">3D Artist</span>
+          <span class="genre-pill">Adventure</span>
+        </div>
+        <div class="card-title">Purrgatory</div>
+        <div class="card-body">
+          <div class="card-text-collapsed">
+            <p class="card-desc">Purrgatory is the spiritual successor to The Witch's Workshop. Purrgatory is a prequel story following the life of Hades, the witch's cat, and his time in Purgatory trying to find a job.</p>
+            <p class="card-desc" style="margin-top:.75rem">Purrgatory was developed at the height of the covid pandemic, and was a fully remote project as a result. This was a particularly challenging project for several reasons, not the least of which being that our team was unable to meet up in person. This was also a project in which I put on too many hats — I was the narrative and level designer as well as the 3D artist for Purrgatory, which was a result of overzealousness on my part and the general lack of team organization that we had due to a fully remote setting. Purrgatory is the project where I learned my limits.</p>
+            <p class="card-desc" style="margin-top:.75rem">Despite the challenges we faced, we had a lot of fun working on Purrgatory, and the game is full of the good humor we had during development.</p>
+          </div>
+          <div class="card-footer">
+            <button class="card-read-more" onclick="toggleCard(this)">Read more ↓</button>
+            <a href="https://loaded-dice.itch.io/purrgatory" target="_blank" class="card-play-link">Play ↗</a>
+          </div>
+        </div>
+        <div class="card-number">04</div>
+      </div>
+
+      <!-- Refracted Realities -->
+      <div class="game-card" style="--card-color: var(--sky)">
+        <div class="card-glow"></div>
+        <img class="card-img" src="/docs/assets/images/title-realities.png" alt="Refracted Realities"/>
+        <div class="card-roles">
+          <span class="role-pill">Designer</span>
+          <span class="genre-pill">Multiplayer · Worldbuilding</span>
+        </div>
+        <div class="card-title">Refracted Realities</div>
+        <div class="card-body">
+          <div class="card-text-collapsed">
+            <p class="card-desc">Refracted Realities is a multiplayer worldbuilding game with a heavy focus on collaborative creation. It features artwork from an AI generator and was designed to be quick to pick up and play.</p>
+            <p class="card-desc" style="margin-top:.75rem">The first and so far only analog project that I've worked on, Refracted Realities is easily one of the projects I'm most proud of. After noticing a trend in multiplayer worldbuilding games that discouraged collaborating creatively with each other, we tried to design a game that was solely focused on sharing and exchanging ideas. That often meant balancing a sense of the player's personal impact with a feeling of ownership, and figuring out the line between guiding the players through the game and influencing their individual stories.</p>
+            <p class="card-desc" style="margin-top:.75rem">As of now, Refracted Realities is still a work in progress, with plans for further development.</p>
+          </div>
+          <div class="card-footer">
+            <button class="card-read-more" onclick="toggleCard(this)">Read more ↓</button>
+          </div>
+        </div>
+        <div class="card-number">05</div>
+      </div>
+
+      <!-- Robbit -->
+      <div class="game-card" style="--card-color: var(--lime)">
+        <div class="card-glow"></div>
+        <img class="card-img" src="/docs/assets/images/title-robbit.png" alt="Robbit"/>
+        <div class="card-roles">
+          <span class="role-pill">Lead Designer</span>
+          <span class="genre-pill">Puzzle</span>
+        </div>
+        <div class="card-title">Robbit</div>
+        <div class="card-body">
+          <div class="card-text-collapsed">
+            <p class="card-desc">Robbit is a puzzle game where you play as a tiny robot trying to escape the factory where it was made. Unfortunately, you're low on power, so you have to navigate the factory while your power cable is plugged into the wall.</p>
+            <p class="card-desc" style="margin-top:.75rem">Robbit is the product of a two day long game jam with a team of just two people. While it is the smallest project I've worked on, I fell in love with the idea of trying to navigate a puzzle while tethered to a wall, so it is still one of my favorites.</p>
+          </div>
+          <div class="card-footer">
+            <button class="card-read-more" onclick="toggleCard(this)">Read more ↓</button>
+            <a href="https://loaded-dice.itch.io/robbit" target="_blank" class="card-play-link">Play ↗</a>
+          </div>
+        </div>
+        <div class="card-number">06</div>
+      </div>
+
+      <!-- Witch's Workshop -->
+      <div class="game-card" style="--card-color: var(--rose)">
+        <div class="card-glow"></div>
+        <img class="card-img" src="/docs/assets/images/title-witch.png" alt="The Witch's Workshop"/>
+        <div class="card-roles">
+          <span class="role-pill">Lead Designer</span>
+          <span class="genre-pill">Crafting · Shop Management</span>
+        </div>
+        <div class="card-title">The Witch's Workshop</div>
+        <div class="card-body">
+          <div class="card-text-collapsed">
+            <p class="card-desc">The Witch's Workshop is a crafting game where you play as a novice witch working to earn her keep in a potion shop.</p>
+            <p class="card-desc" style="margin-top:.75rem">The main goals of The Witch's Workshop was to develop a game for a casual audience with tactile crafting mechanics. This turned out to be more of a challenge than we originally expected, as we couldn't rely on the player's game literacy to design critical elements such as UI, tutorials, or gameplay mechanics. Despite that, the game stayed well within scope for the entirety of the development cycle, and we learned exactly how difficult it is to design an "easy" game.</p>
+            <p class="card-desc" style="margin-top:.75rem">The end result was a very child-friendly, tactile-focused crafting game.</p>
+          </div>
+          <button class="card-read-more" onclick="toggleCard(this)">Read more ↓</button>
+        </div>
+        <div class="card-number">07</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-section" id="about">
+  <div class="inner">
+    <div class="about-visual">
+      <div class="about-deco-1"></div>
+      <div class="about-deco-2"></div>
+      <div class="about-photo-wrap">
+        <img src="/docs/assets/images/me-disc.png" alt="Lani Feldstedt" onerror="this.style.display='none'; this.parentElement.style.background='#2a2740'; this.parentElement.innerHTML='<div style=\'font-family:Syne,sans-serif;font-size:4rem;font-weight:800;color:#2e2b38\'>LF</div>'"/>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-label">About Me</div>
+      <h2>Designer. Writer. <em style="color: var(--lime); font-style: italic;">Goblin Chef.</em></h2>
+      <p>I'm a Copenhagen-based game designer and co-founder of the Cooking with Goblins game development cooperative. Originally from the U.S., I moved to Denmark in 2019 and pursued a degree in game design from the IT University of Copenhagen.</p>
+      <p>After graduating, I joined the Game Workers' Guild as part of the working group, and later co-founded Cooking with Goblins. I see game development as an expression of art — I love being deeply involved in all aspects of the craft, but design is my home.</p>
+      <div class="about-tags">
+        <span class="about-tag">Game Design</span>
+        <span class="about-tag">Narrative Design</span>
+        <span class="about-tag">Level Design</span>
+        <span class="about-tag">UI/UX</span>
+        <span class="about-tag">Creative Writing</span>
+        <span class="about-tag">3D Modeling</span>
+        <span class="about-tag">Pixel Art</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>Lani Feldstedt</strong> · Game Designer · Copenhagen, DK &nbsp;·&nbsp; Co-founder, Cooking with Goblins</p>
+  <p style="margin-top: .75rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+    <a href="https://www.linkedin.com/in/lani-feldstedt-20472225/" target="_blank" style="color: var(--accent); text-decoration: none; font-size: .8rem; letter-spacing: .05em; transition: opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">LinkedIn ↗</a>
+    <a href="/cdn-cgi/l/email-protection#e985888780c78f8c858d9a9d8c8d9da98e84888085c78a8684" style="color: var(--accent); text-decoration: none; font-size: .8rem; letter-spacing: .05em; transition: opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'"><span class="__cf_email__" data-cfemail="ff939e9196d1999a939b8c8b9a9b8bbf98929e9693d19c9092">[email&#160;protected]</span> ↗</a>
+  </p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+<script>
+  function toggleCard(btn) {
+    const collapsed = btn.closest(".card-body").querySelector(".card-text-collapsed");
+    const isExpanded = collapsed.classList.toggle("expanded");
+    if (isExpanded) {
+      collapsed.style.height = collapsed.scrollHeight + "px";
+    } else {
+      collapsed.style.height = "5.8em";
+    }
+    btn.textContent = isExpanded ? "Read less ↑" : "Read more ↓";
+  }
+</script>
+</body>
+</html>
